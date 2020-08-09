@@ -16,12 +16,22 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "noResolve": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "sourceMap": true,
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/lib/*": ["lib/*"],
-      "@/styles/*": ["styles/*"]
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/lib/*": [
+        "lib/*"
+      ],
+      "@/styles/*": [
+        "styles/*"
+      ]
     }
   },
   "include": [
@@ -29,9 +39,10 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/404.js",
+    "pages/404.tsx",
     "pages/404.jsx"
   ],
   "exclude": [
-    "node_modules"
+    "./node_modules/**/*"
   ]
 }
