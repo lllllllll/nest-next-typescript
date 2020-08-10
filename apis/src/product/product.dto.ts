@@ -1,7 +1,6 @@
-import { IsNotEmpty, MinLength } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
-export class UserDto {
-  @MinLength(2, { message: 'กรุณาระบุอย่างน้อย 2 ตัวอักษร' })
+export class ProductDto {
   @IsNotEmpty({ message: 'กรุณาระบุ Condo name' })
   condo_name: string;
   @IsNotEmpty({ message: 'กรุณาระบุ Title' })
@@ -9,7 +8,7 @@ export class UserDto {
   @IsNotEmpty({ message: 'กรุณาระบุ Description' })
   description: string;
   @IsNotEmpty({ message: 'กรุณาระบุ Photos url' })
-  photos: string;
+  photos: [];
   @IsNotEmpty({ message: 'กรุณาระบุ Rent price' })
   rent_price: number;
   @IsNotEmpty({ message: 'กรุณาระบุ Sale price' })
@@ -35,7 +34,7 @@ export class UserDto {
   water_heater?: boolean;
 }
 
-export class UsersDto {
+export class ProductsDto {
   @IsNotEmpty({ message: 'กรุณาระบุ data' })
-  data: [UserDto]
+  products: ProductDto[]
 }

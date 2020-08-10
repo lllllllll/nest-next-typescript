@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-export interface User extends Document {
+export interface Product extends Document {
   _id: string;
   condo_name: string;
   title: string;
@@ -24,6 +24,29 @@ export interface User extends Document {
   water_heater: boolean;
 }
 
-export interface Users {
-  data: User[];
+export interface Products {
+  products: Product[];
 }
+
+export const headColumn = [
+  'condo_name',
+  'title',
+  'description',
+  'photos',
+  'rent_price',
+  'sale_price',
+  'bedroom',
+  'bath',
+  'size',
+  'floor',
+  'agent_post',
+  'accept_agent',
+  'aircon',
+  'bath_tub',
+  'electric_stove',
+  'furniture',
+  'gas_stove',
+  'Refrigerator',
+  'washing_machine',
+  'water_heater',
+]
