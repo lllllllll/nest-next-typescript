@@ -1,30 +1,33 @@
 import React, { useState, useRef } from 'react';
+import { ListenerClick } from './_listenerClick';
 
-
-const Dropdown = () => {
-  const refDropdown = useRef();
-  const [isOpen, setIsOpen] = useState(false);
+const Dropdown = ({data: {value, title, list, cb}}) => {
+  const refDropdown = useRef(null);
+  const [isActive, setIsActive] = ListenerClick(refDropdown, false);
   const [tranX, setTranX] = useState(0);
 
-  const getOffset = e => {
+  const getOffset = () => {
     const rect = refDropdown.current.getBoundingClientRect();
     setTranX(rect.right);
-    setIsOpen(!isOpen)
+    setIsActive(!isActive);
   }
+  const send = item => {
+    cb(item);
+  }
+
   return <div ref={refDropdown} className="dropdown" onClick={getOffset}>
   <div className="header">
-    <div className="title">ห้องใหม่เอี่ยม</div>
+    <div className="title">{ value }</div>
     <div className="icon"><i className="fas fa-caret-down"/></div>
   </div>
-  { isOpen ?
+  { isActive ?
     <div className="dropdown-items" style={{transform: `translateX(${tranX}px)`}}>
-      <div className="title">Amenities</div>
-      <div className="item">Air condition</div>
-      <div className="item">Balcony</div>
-      <div className="item">Bath tub</div>
-      <div className="item">Electric stove</div>
-      <div className="item">Furniture</div>
-      <div className="item">Waching Machine</div>
+      { title ? <div className="title">{ title }</div> : null }
+      {
+        list.map((item, key) => (
+          <div key={key} onClick={() => send(item)} className="item">{item.label}</div>
+        ))
+      }
     </div> : null
   }
 </div>

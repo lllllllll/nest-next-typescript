@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
 $primary: #0089FF;
-
 $bd: 1px solid #E5E5E5;
 
 *, :after, :before {
@@ -11,13 +10,11 @@ $bd: 1px solid #E5E5E5;
   padding: 0;
   box-sizing: border-box;
 }
-
 html, body {
   background: #E5E5E5;
   font-family: 'Roboto', 'Kanit', sans-serif;
   font-size: 16px;
 }
-
 nav {
   background: #002240;
   height: 56px;
@@ -87,7 +84,6 @@ nav {
     }
   }
 }
-
 .full-container {
   background: #fff;
   >.head {
@@ -172,6 +168,25 @@ table {
           color: #fff;
         }
       }
+      >small {
+        color: #A6AAB4;
+      }
+      &._not-found {
+        font-size: 12px;
+        color: #EB5757;
+      }
+      >.photo {
+        display: inline-block;
+        margin-right: 4px;
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        overflow: hidden;
+        >img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
       >.status {
         display: inline-flex;
         align-items: center;
@@ -194,6 +209,7 @@ table {
 }
 .dropdown {
   position: static;
+  cursor: pointer;
   >.header {
     height: 42px;
     display: flex;
